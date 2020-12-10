@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   optimization: {
-    minimize: process.env.NODE_ENV === 'production'
+    minimize: false // process.env.NODE_ENV === 'production'
   },
   module: {
     rules: [
@@ -39,7 +39,7 @@ module.exports = {
           options: {
             cacheDirectory: false,
             presets: [babelPreset],
-            plugins: ['styled-jsx/babel']
+            plugins: ['babel-plugin-emotion']
           }
         }
       }
