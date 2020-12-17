@@ -13,7 +13,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   optimization: {
-    minimize: false // process.env.NODE_ENV === 'production'
+    minimize: true // process.env.NODE_ENV === 'production'
   },
   module: {
     rules: [

@@ -1,5 +1,6 @@
-import { makeStyles } from '@fluentui/react-theme-provider';
+import { makeStyles } from '@fluentui/make-styles';
 import React from 'react';
+import { renderer } from './renderer';
 
 const useViewStyles = makeStyles([
   [
@@ -90,7 +91,7 @@ const useStaticViewStyles = makeStyles(staticViewStyles);
 
 function View(props) {
   const { className, ...other } = props;
-  const classes = useStaticViewStyles({}, className);
+  const classes = useStaticViewStyles({}, { renderer }, className);
 
   return <div {...other} className={classes} />;
 }

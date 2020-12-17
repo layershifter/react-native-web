@@ -1,7 +1,8 @@
-import { makeStyles } from '@fluentui/react-theme-provider';
+import { makeStyles } from '@fluentui/make-styles';
 import React from 'react';
 
 import View from './View';
+import { renderer } from './renderer';
 
 const useBoxStyles = makeStyles([
   [{ outer: true }, { alignSelf: 'flex-start', padding: '4px' }],
@@ -82,12 +83,15 @@ const staticBoxStyles = [
 const useStaticBoxStyles = makeStyles(staticBoxStyles);
 
 const Box = ({ color, fixed = false, layout = 'column', outer = false, ...other }) => {
-  const classes = useStaticBoxStyles({
-    color,
-    fixed,
-    outer,
-    row: layout === 'row'
-  });
+  const classes = useStaticBoxStyles(
+    {
+      color,
+      fixed,
+      outer,
+      row: layout === 'row'
+    },
+    { renderer }
+  );
 
   return <View className={classes} {...other} />;
 };
